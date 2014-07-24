@@ -7,10 +7,11 @@ window.onload = function() {
 
     var gameTitle = document.createElement('h1');
     var inputNumberTextBox = document.createElement('input');
+    var checkButton = document.createElement('button');
     var playerNameTextBox = document.createElement('input');
     var playerNameWrapper = document.createElement('div');
-    var checkButton = document.createElement('button');
     var saveButton = document.createElement('button');
+    var output = document.createElement('div');
     var loadScoresButton = document.createElement('button');
     var startNewGameButton = document.createElement('button');
     var highScoresTitle = document.createElement('h2');
@@ -45,6 +46,7 @@ window.onload = function() {
     container.appendChild(startNewGameButton);
     container.appendChild(inputNumberTextBox);
     container.appendChild(checkButton);
+    container.appendChild(output);
     container.appendChild(playerNameWrapper);
     container.appendChild(highScoresTitle);
     container.appendChild(loadScoresButton);
@@ -122,6 +124,8 @@ window.onload = function() {
             saveButton.score = turns;
         }
 
+        output.innerHTML = 'rams ' + rams + ' ' + 'sheeps ' + sheeps;
+
         // console.log(rams);
         // console.log(sheeps);
     }
@@ -144,8 +148,6 @@ window.onload = function() {
             return player.score;
         });
 
-        sortedByScore.reverse();
-
         var listItem = document.createElement('li');
 
         highScoresList.innerHTML = '';
@@ -154,13 +156,15 @@ window.onload = function() {
             var item = listItem.cloneNode();
 
             item.innerHTML = player.name + ' ' + player.score;
-            
+
             highScoresList.appendChild(item);
         });
     }
 
     function saveScore(ev) {
         localStorage[playerNameTextBox.value] = ev.target.score;
+
+        playerNameWrapper.style.display = 'none';
     }
 
     function checkInputNumber(number) {
