@@ -20,19 +20,26 @@ window.onload = function() {
     gameTitle.innerHTML = 'Rams and sheeps';
 
     startNewGameButton.innerHTML = 'New Game';
+    startNewGameButton.className = 'submit-button';
     startNewGameButton.addEventListener('click', startGame, false);
 
     inputNumberTextBox.placeholder = 'Guess Number';
     inputNumberTextBox.style.display = 'none';
+    inputNumberTextBox.className = 'input-text';
 
     checkButton.innerHTML = 'Check';
     checkButton.style.display = 'none';
+    checkButton.className = 'submit-button';
     checkButton.addEventListener('click', checkNumber, false);
 
     saveButton.innerHTML = 'Save';
+    saveButton.className = 'submit-button';
     saveButton.addEventListener('click', saveScore, false);
 
+    output.className = 'output-content';
+
     loadScoresButton.innerHTML = 'High Scores';
+    loadScoresButton.className = 'submit-button';
     loadScoresButton.addEventListener('click', loadScores, false);
 
     playerNameWrapper.style.display = 'none';
